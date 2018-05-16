@@ -22,6 +22,11 @@ And when downloading is done, navigate to the project directory `cd annotation-p
 In your TestCase class, in setUp() method, which extends from \PHPUnit\Framework\TestCase create and use function like:
 
 ```
+public function setUp()
+{
+	$this->_processAnnotations();
+}
+
 private function _processAnnotations()
 {
 	$class = get_class($this);
