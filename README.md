@@ -17,7 +17,7 @@ And when downloading is done, navigate to the project directory `cd annotation-p
 
 ##  Usage
 
-### 1. In your TestCase-class
+### 1. In your TestCase class
 
 In your TestCase class, in setUp() method, which extends from \PHPUnit\Framework\TestCase create and use function like:
 
