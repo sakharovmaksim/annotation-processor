@@ -54,7 +54,6 @@ private function _processAnnotations()
 		$this->markTestSkipped("Skip the test {$class}::{$methodName}, because it has @todocase, write it!");
 	}
 }
-}
 ```
 This function, when starting each test, will analyze the constants from the description and apply the actions described in the function above.
 
