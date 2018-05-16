@@ -58,7 +58,7 @@ private function _processAnnotations()
 ```
 This function, when starting each test, will analyze the constants from the description and apply the actions described in the function above.
 
-### 2. Create AnnotationsNames-file with annotation constants
+### 2. Create AnnotationsNames file with annotation constants
 
 Use constants in _processAnnotations()
 ```
