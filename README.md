@@ -1,4 +1,4 @@
-Annotation Processor — utility for parsing constants from the description to the test methods
+Annotation Processor — utility for parsing constants from the description of the test methods
 ========================================================
 
 ##  Install
