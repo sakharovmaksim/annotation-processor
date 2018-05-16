@@ -1,12 +1,12 @@
 <?php
 declare(strict_types = 1);
 /**
- * @author Nina Belan <nbelan@tutu.ru>
+ * @author Sakharov Maksim <sakharov@tutu.ru>
  *
  * @description The client that processes annotations with accepted strategy (Annotation subclasses)
  */
 
-namespace Core;
+namespace src;
 
 class AnnotationProcessor
 {

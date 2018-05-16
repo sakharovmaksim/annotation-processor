@@ -5,7 +5,7 @@
  * @description All available custom annotations names
  */
 
-namespace Core;
+namespace src;
 
 class AnnotationsNames
 {
@@ -18,6 +18,8 @@ class AnnotationsNames
 	const ON_DEMAND = '@onDemand';
 	// Тест запустится только на доменах из списка (RC, Production, Devel)
 	const DOMAINS = '@domains';
+	// Тест НЕ запустится на указанных доменах
+	const DOMAINS_EXCEPT = '@domainsExcept';
 
 	// Если указать лейбл при запуске, то запустятся только те тесты, у которых есть аннотация c этим лейблом
 	// Важно: лейбл можно ставить на любые тесты, которые хочется объединить логически

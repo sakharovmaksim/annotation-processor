@@ -1,6 +1,7 @@
 <?php
+declare(strict_types = 1);
 /**
- * @author Evgeniy Udodov <udodov@tutu.ru>
+ * @author Sakharov Maksim <sakharov@tutu.ru>
  *
  * @description Concrete class to process the `@user` annotations. Examples:
  *              `@user anonymous` to stay not logged in
@@ -8,10 +9,10 @@
  *
  */
 
-namespace Core\Annotation;
+namespace src\Annotation;
 
-use Core\Annotation;
-use Core\AnnotationsNames;
+use src\Annotation;
+use src\AnnotationsNames;
 
 class UserAnnotation extends Annotation
 {
@@ -21,7 +22,7 @@ class UserAnnotation extends Annotation
 	 * @return	mixed
 	 * @throws	\Exception
 	 */
-	protected function _processDocs($phpDocs, $classReflection)
+	protected function _processDocs(string $phpDocs, \ReflectionClass $classReflection)
 	{
 		$userAnnotation = AnnotationsNames::USER;
 		if (!preg_match("/$userAnnotation" . '\s+(\S+)\s*(\S+)?\s*\n/', $phpDocs, $matches))

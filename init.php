@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Alexander Sokol <sokol@tutu.ru>
+ * @author Maksim Sakharov <sakharov@tutu.ru>
  */
 
 /*

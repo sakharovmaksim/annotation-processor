@@ -1,14 +1,14 @@
 <?php
+declare(strict_types = 1);
 /**
  * @author Maksim Sakharov <sakharov@tutu.ru>
  *
  * @description Process annotation for case and todocase phpDocs
  */
 
-namespace Core\Annotation;
+namespace src\Annotation;
 
-use Core\Annotation;
-use \Parsedown;
+use src\Annotation;
 
 class CaseAnnotation extends Annotation
 {
@@ -37,7 +37,7 @@ class CaseAnnotation extends Annotation
 	 *
 	 * @return mixed
 	 */
-	protected function _processDocs($phpDocs, $classReflection)
+	protected function _processDocs(string $phpDocs, \ReflectionClass $classReflection)
 	{
 		return preg_match_all("/($this->_tag)(.*)((\*\/)|(\*\s*@))/sU", $phpDocs, $matches)
 			? $this->_clearComment($matches[2][0])
@@ -66,7 +66,7 @@ class CaseAnnotation extends Annotation
 			$new_comment[] = preg_replace(['/^\s*(\*\s)?/'], '', $str, 1);
 		}
 		$result = implode("\n", $new_comment);
-		$parsedown = new Parsedown();
+		$parsedown = new \Parsedown();
 		return $parsedown->text($result);
 	}
 }

@@ -1,12 +1,12 @@
 <?php
 declare(strict_types = 1);
 /**
- * @author Nina Belan <nbelan@tutu.ru>
+ * @author Maksim Sakharov <sakharov@tutu.ru>
  *
  * @description Helper for working with reflection classes
  */
 
-namespace Core;
+namespace src;
 
 class ReflectionHelper
 {

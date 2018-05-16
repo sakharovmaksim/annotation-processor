@@ -1,12 +1,12 @@
 <?php
 declare(strict_types = 1);
 /**
- * @author Nina Belan <nbelan@tutu.ru>
+ * @author Sakharov Maksim <sakharov@tutu.ru>
  *
  * @description Abstract strategy of annotation processing.
  */
 
-namespace Core;
+namespace src;
 
 abstract class Annotation
 {

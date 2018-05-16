@@ -1,14 +1,15 @@
 <?php
+declare(strict_types = 1);
 /**
- * @author Merkusheva Ludmila <merkusheva@tutu.ru>
+ * @author Sakharov Maksim <sakharov@tutu.ru>
  *
  * @description The array annotation
  */
 
-namespace Core\Annotation;
+namespace src\Annotation;
 
-use Core\Annotation;
-use Core\Utils\Strings;
+use src\Annotation;
+use src\Utils;
 
 class ArrayAnnotation extends Annotation
 {
@@ -33,7 +34,7 @@ class ArrayAnnotation extends Annotation
 	 *
 	 * @return array|string[] Examples: []|['Labels::SEARCH_FORM', 'Labels::AUTOINPUT']
 	 */
-	protected function _processDocs($phpDocs, $classReflection)
+	protected function _processDocs(string $phpDocs, \ReflectionClass $classReflection)
 	{
 		$result = [];
 		if (preg_match_all("/{$this->_tag}\\s+(.*)\n/", $phpDocs, $matches))
@@ -41,7 +42,7 @@ class ArrayAnnotation extends Annotation
 			foreach ($matches[1] as $labelsString)
 			{
 				$labels = [];
-				$labelsStrings = explode(',', Strings::stripAllWhiteSpaces($labelsString));
+				$labelsStrings = explode(',', Utils::stripAllWhiteSpaces($labelsString));
 				foreach ($labelsStrings as $label)
 				{
 					$labels[] = $this->_evaluateConstant($label, $classReflection);

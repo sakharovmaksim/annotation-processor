@@ -1,13 +1,14 @@
 <?php
+declare(strict_types = 1);
 /**
- * @author Alexander Sokol <sokol@tutu.ru>
+ * @author Sakharov Maksim <sakharov@tutu.ru>
  *
  * @description Concrete class to process annotations that have no value and can be either present or not.
  */
 
-namespace Core\Annotation;
+namespace src\Annotation;
 
-use Core\Annotation;
+use src\Annotation;
 
 class BoolAnnotation extends Annotation
 {
@@ -34,7 +35,7 @@ class BoolAnnotation extends Annotation
 	 *
 	 * @return mixed
 	 */
-	protected function _processDocs($phpDocs, $classReflection)
+	protected function _processDocs(string $phpDocs, \ReflectionClass $classReflection)
 	{
 		return strpos($phpDocs, $this->_tag) !== false;
 	}
