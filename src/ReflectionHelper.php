@@ -17,11 +17,14 @@ class ReflectionHelper
 		$fileContent = file_get_contents($fileName);
 
 		if (!preg_match_all("#\n(?:use|namespace)\s+([a-zA-Z0-9\\\_]+)\s*;#", $fileContent, $matches))
+		{
 			return $result;
+		}
 
 		foreach ($matches[1] as $nameSpace)
+		{
 			$result[] = $nameSpace;
-
+		}
 		return $result;
 	}
 
@@ -34,11 +37,15 @@ class ReflectionHelper
 			$classStringFromUseSection = $declaredNamespace . str_replace($importedNameSpace, '', $classString);
 
 			if (class_exists($classStringFromUseSection))
+			{
 				return $classStringFromUseSection;
+			}
 
 			$classNameFromNamespace = $declaredNamespace . "\\" . $classString;
 			if (class_exists($classNameFromNamespace))
+			{
 				return $classNameFromNamespace;
+			}
 		}
 		return $classString;
 	}
@@ -46,8 +53,9 @@ class ReflectionHelper
 	public static function getFullClassName(\ReflectionClass $class, string $classString) : string
 	{
 		if (strpos($classString, "\\") === 0)
+		{
 			return $classString;
-
+		}
 		return self::getFullClassNameFromNamespaces(self::getDeclaredNameSpaces($class), $classString);
 	}
 
@@ -56,8 +64,9 @@ class ReflectionHelper
 		$classAndConstantArray = explode('::', $constantString);
 
 		if (count($classAndConstantArray) < 2)
+		{
 			throw new \Exception('Provided constant name is not valid: ' . var_export($constantString, true));
-
+		}
 		$fullClassName = self::getFullClassName($class, $classAndConstantArray[0]);
 		return $fullClassName . '::' . $classAndConstantArray[1];
 	}

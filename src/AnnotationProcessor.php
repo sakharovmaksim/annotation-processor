@@ -39,7 +39,7 @@ class AnnotationProcessor
 	}
 
 	/**
-	 * @param \Core\Annotation $annotation The strategy of annotation processing.
+	 * @param Annotation $annotation The strategy of annotation processing.
 	 *
 	 * @return mixed
 	 */
@@ -53,7 +53,7 @@ class AnnotationProcessor
 	}
 
 	/**
-	 * @param \Core\Annotation $annotation The strategy of annotation processing.
+	 * @param Annotation $annotation The strategy of annotation processing.
 	 *
 	 * @return mixed
 	 */

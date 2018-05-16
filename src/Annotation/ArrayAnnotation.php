@@ -29,7 +29,7 @@ class ArrayAnnotation extends Annotation
 	}
 
 	/**
-	 * @param	string 			$phpDocs
+	 * @param	string 		  	 $phpDocs
 	 * @param	\ReflectionClass $classReflection
 	 *
 	 * @return array|string[] Examples: []|['Labels::SEARCH_FORM', 'Labels::AUTOINPUT']

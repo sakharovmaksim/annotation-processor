@@ -107,10 +107,12 @@ abstract class Annotation
 			$constantName = ReflectionHelper::getFullConstantName($reflectionClass, $annotationValue);
 			$constant = @constant($constantName);
 			if (is_null($constant))
+			{
 				throw new \Exception(
 					"Не удалось получить значение константы {$constantName} в классе {$reflectionClass->name}"
 					. "\nКласс с константой точно в нём заюзан?"
 				);
+			}
 			return $constant;
 		}
 		return $annotationValue;

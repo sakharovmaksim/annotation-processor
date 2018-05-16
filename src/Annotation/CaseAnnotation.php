@@ -56,7 +56,7 @@ class CaseAnnotation extends Annotation
 			: $previousResult . $newResult;
 	}
 
-	private function _clearComment($comment)
+	private function _clearComment($comment) : string
 	{
 		$strings = explode("\n", $comment);
 		$new_comment = [];

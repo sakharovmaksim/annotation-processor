@@ -16,42 +16,57 @@ And when downloading is done, navigate to the project directory `cd annotation-p
 `composer install`
 
 ##  Usage
-In your TestCase-class in setUp()-method, which extends from \PHPUnit\Framework\TestCase use function like:
+
+### 1. In your TestCase-class
+
+In your TestCase class, in setUp() method, which extends from \PHPUnit\Framework\TestCase create and use function like:
+
 ```
 private function _processAnnotations()
+{
+	$class = get_class($this);
+	$methodName = $this->getName(false);
+	$annotationProcessor = new AnnotationProcessor($class, $methodName);
+	// @domains
+	if ($domainsExcept = $annotationProcessor->process(new Annotation\ArrayAnnotation(AnnotationsNames::DOMAINS_EXCEPT)))
 	{
-		$class = get_class($this);
-		$methodName = $this->getName(false);
-		$annotationProcessor = new AnnotationProcessor($class, $methodName);
-
-		// @domains
-		if ($domainsExcept = $annotationProcessor->process(new Annotation\ArrayAnnotation(AnnotationsNames::DOMAINS_EXCEPT)))
+		if (Env::isRC() && in_array(Env::RC, $domainsExcept))
 		{
-			if (Env::isRC() && in_array(Env::RC, $domainsExcept))
-			{
-				$this->markTestSkipped("Skip the test that is not for RC: {$class}::{$methodName}");
-			}
-			elseif (Env::isProduction() && in_array(Env::PROD, $domainsExcept))
-			{
-				$this->markTestSkipped("Skip the test that is not for Production: {$class}::{$methodName}");
-			}
-			elseif (Env::isStand() && in_array(Env::STAND, $domainsExcept))
-			{
-				$this->markTestSkipped("Skip the test that is not for stands: {$class}::{$methodName}");
-			}
+			$this->markTestSkipped("Skip the test that is not for RC: {$class}::{$methodName}");
 		}
-
-		// @bug
-		if ($annotationProcessor->process(new Annotation\BoolAnnotation(AnnotationsNames::BUG)))
+		elseif (Env::isProduction() && in_array(Env::PROD, $domainsExcept))
 		{
-			$this->markTestSkipped("Skip the test {$class}::{$methodName}, because it has deactivated due to a @bug!");
+			$this->markTestSkipped("Skip the test that is not for Production: {$class}::{$methodName}");
 		}
-		// @todocase
-		if ($annotationProcessor->process(new Annotation\BoolAnnotation(AnnotationsNames::TODOCASE)))
+		elseif (Env::isStand() && in_array(Env::STAND, $domainsExcept))
 		{
-			$this->markTestSkipped("Skip the test {$class}::{$methodName}, because it has @todocase, write it!");
+			$this->markTestSkipped("Skip the test that is not for stands: {$class}::{$methodName}");
 		}
 	}
+	// @bug
+	if ($annotationProcessor->process(new Annotation\BoolAnnotation(AnnotationsNames::BUG)))
+	{
+		$this->markTestSkipped("Skip the test {$class}::{$methodName}, because it has deactivated due to a @bug!");
+	}
+	// @todocase
+	if ($annotationProcessor->process(new Annotation\BoolAnnotation(AnnotationsNames::TODOCASE)))
+	{
+		$this->markTestSkipped("Skip the test {$class}::{$methodName}, because it has @todocase, write it!");
+	}
+}
 }
 ```
 This function, when starting each test, will analyze the constants from the description and apply the actions described in the function above.
+
+### 2. Create AnnotationsNames-file with annotation constants
+
+Use constants in _processAnnotations()
+```
+class AnnotationsNames
+{
+	const DOMAINS_EXCEPT = '@domainsExcept';
+	const BUG = '@bug';
+	const TODOCASE = '@todocase';
+}
+```
+

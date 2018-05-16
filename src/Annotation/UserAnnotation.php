@@ -3,16 +3,16 @@ declare(strict_types = 1);
 /**
  * @author Sakharov Maksim <sakharov@tutu.ru>
  *
- * @description Concrete class to process the `@user` annotations. Examples:
- *              `@user anonymous` to stay not logged in
- *              `@user username password`
+ * @description Concrete class to process the `@user` annotations.
+ * Examples:
+ * `@user anonymous` to stay not logged in
+ * `@user username password`
  *
  */
 
 namespace src\Annotation;
 
 use src\Annotation;
-use src\AnnotationsNames;
 
 class UserAnnotation extends Annotation
 {
@@ -24,7 +24,7 @@ class UserAnnotation extends Annotation
 	 */
 	protected function _processDocs(string $phpDocs, \ReflectionClass $classReflection)
 	{
-		$userAnnotation = AnnotationsNames::USER;
+		$userAnnotation = '@user';
 		if (!preg_match("/$userAnnotation" . '\s+(\S+)\s*(\S+)?\s*\n/', $phpDocs, $matches))
 		{
 			return null;
@@ -72,7 +72,6 @@ class UserAnnotation extends Annotation
 		{
 			return array_merge($previousResult, $newResult);
 		}
-		\Logger::log("Предыдущий или текущий результат не массив, но оба не null. Возвращаем пустой массив");
 		return [];
 	}
 }
