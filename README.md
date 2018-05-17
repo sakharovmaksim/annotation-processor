@@ -74,11 +74,22 @@ class AnnotationsNames
 }
 ```
 
-### 3. Run unit-tests for project
+### 3. Usage in tests annotations
+
+```
+/**
+ * @labels LabelsAvia::RELEASE
+ * @todocase Проверка поиска "Только туда"
+ * - выбрать одну дату в календаре: запускается поиск, открывается выдача 100 эконом по корректному маршруту и выбранной дате
+ */
+public function testSearchOW() {}
+```
+
+### 4. Run unit-tests for project
 
 `sh run_tests.sh`
 
-### 4. Deploy
+### 5. Deploy
 
 Travis CI run unit-tests for all Pull Requests. Look '.travis.yml'-file with CI-config
 
