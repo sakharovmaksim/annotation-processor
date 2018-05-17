@@ -9,4 +9,4 @@ before_script:
     - travis_retry composer install --no-interaction --prefer-source
 
 script:
-    - vendor/bin/phpunit --verbose --stderr --configuration phpunit.xml
+    - sh run_tests.sh
