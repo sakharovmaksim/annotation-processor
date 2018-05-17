@@ -35,7 +35,7 @@ class DomainsAnnotationTest extends TestCase
 			'testWithDomainsDevelAnnotation' => [
 				$this->_testClassWithAnnotations,
 				'testWithDomainsDevelAnnotation',
-				['devel']
+				['awdawdaw']
 			],
 			'testWithDomainsRcAnnotation' => [
 				$this->_testClassWithAnnotations,
