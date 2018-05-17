@@ -80,4 +80,8 @@ class AnnotationsNames
 
 ### 4. Deploy
 
-Travis CI run unit-tests for all Pull Requests. Look '.travis.yml'-file with CI-config 
+Travis CI run unit-tests for all Pull Requests. Look '.travis.yml'-file with CI-config
+
+
+-----
+Created by tutu.ru
