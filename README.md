@@ -74,3 +74,10 @@ class AnnotationsNames
 }
 ```
 
+### 3. Run unit-tests for project
+
+`sh run_tests.sh`
+
+### 4. Deploy
+
+Travis CI run unit-tests for all Pull Requests. Look '.travis.yml'-file with CI-config 
