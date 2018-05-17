@@ -78,9 +78,8 @@ class AnnotationsNames
 
 ```
 /**
- * @labels LabelsAvia::RELEASE
+ * @labels Labels::RELEASE
  * @todocase Проверка поиска "Только туда"
- * - выбрать одну дату в календаре: запускается поиск, открывается выдача 100 эконом по корректному маршруту и выбранной дате
  */
 public function testSearchOW() {}
 ```
