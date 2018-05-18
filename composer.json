@@ -16,7 +16,7 @@
     "require": {
         "php": "^7.1",
         "phpunit/phpunit": "^6.0 || ^7.0",
-        "erusev/parsedown": "^1.0"
+        "erusev/parsedown": "^1.0 || ^2.0"
     },
     "autoload": {
         "classmap": [
