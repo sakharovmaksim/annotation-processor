@@ -1,7 +1,7 @@
 {
     "name": "sakharovmaksim/annotation-processor",
     "type": "library",
-    "description": "Utility for parsing constants from the description of the test methods",
+    "description": "Utility for parsing constants from the description of the test methods. Created by tutu.ru",
     "license": "MIT",
     "authors": [
         {
